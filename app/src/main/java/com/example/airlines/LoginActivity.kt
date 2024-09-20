@@ -2,6 +2,7 @@ package com.example.airlines
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.InputType
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
 import android.widget.Button
@@ -50,11 +51,13 @@ class LoginActivity : AppCompatActivity() {
 
     private fun togglePasswordVisibility(passwordEditText: EditText) {
         if (isPasswordVisible) {
+            passwordEditText.inputType = InputType.TYPE_CLASS_TEXT
             passwordEditText.transformationMethod = PasswordTransformationMethod.getInstance()
             passwordEditText.setCompoundDrawablesWithIntrinsicBounds(
                 null, null, ContextCompat.getDrawable(this, R.drawable.ic_eye), null
             )
         } else {
+            passwordEditText.inputType = InputType.TYPE_TEXT_VARIATION_PASSWORD
             passwordEditText.transformationMethod = HideReturnsTransformationMethod.getInstance()
             passwordEditText.setCompoundDrawablesWithIntrinsicBounds(
                 null, null, ContextCompat.getDrawable(this, R.drawable.ic_closed_eye), null

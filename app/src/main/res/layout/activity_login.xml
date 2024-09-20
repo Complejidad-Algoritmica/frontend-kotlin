@@ -67,7 +67,8 @@
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="@+id/frame_signin"
             app:layout_constraintStart_toStartOf="@+id/frame_signin"
-            app:layout_constraintTop_toBottomOf="@+id/et_user" />
+            app:layout_constraintTop_toBottomOf="@+id/et_user"
+            android:inputType="textPassword"/>
 
 
         <Button
