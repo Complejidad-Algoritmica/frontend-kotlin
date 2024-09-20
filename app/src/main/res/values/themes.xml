@@ -2,6 +2,8 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.Airlines" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="android:fontFamily">@font/poppins_regular</item>
+        <item name="colorPrimary">#1D2971</item>
+
     </style>
 
     <style name="Theme.Airlines" parent="Base.Theme.Airlines" />
