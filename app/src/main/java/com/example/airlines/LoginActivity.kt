@@ -49,19 +49,18 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun togglePasswordVisibility(passwordEditText: EditText) {
-        if (isPasswordVisible) { // Ocultar la contraseña
+        if (isPasswordVisible) {
             passwordEditText.transformationMethod = PasswordTransformationMethod.getInstance()
             passwordEditText.setCompoundDrawablesWithIntrinsicBounds(
                 null, null, ContextCompat.getDrawable(this, R.drawable.ic_eye), null
             )
-        } else { // Mostrar la contraseña
+        } else {
             passwordEditText.transformationMethod = HideReturnsTransformationMethod.getInstance()
             passwordEditText.setCompoundDrawablesWithIntrinsicBounds(
                 null, null, ContextCompat.getDrawable(this, R.drawable.ic_closed_eye), null
-            ) // Cambiar al ícono de ojo cerrado
+            )
         }
 
-        // Mover el cursor al final del texto
         passwordEditText.setSelection(passwordEditText.text.length)
         isPasswordVisible = !isPasswordVisible
     }

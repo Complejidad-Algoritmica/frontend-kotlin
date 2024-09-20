@@ -96,6 +96,15 @@
                 android:hint="Aeropuerto de llegada"/>
 
         </LinearLayout>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Buscar"
+            android:id="@+id/btn_search"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
     <View
@@ -131,6 +140,7 @@
             android:textColor="@color/white"
             android:textSize="30sp"
             android:fontFamily="@font/poppins_bold"/>
+
 
 
     </LinearLayout>
