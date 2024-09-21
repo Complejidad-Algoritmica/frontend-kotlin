@@ -5,6 +5,7 @@ import Models.RetrofitClient
 import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -56,7 +57,9 @@ class HomeActivity : AppCompatActivity() {
                     response: Response<List<List<String>>>
                 ) {
                     Log.i("amdrius", response.body().toString())
-                    val paths = response?.body()
+                    val paths = response.body()
+
+
 
                     container.layoutManager =LinearLayoutManager(applicationContext)
                     container.adapter = Adapter(paths!!)
@@ -65,6 +68,11 @@ class HomeActivity : AppCompatActivity() {
 
                 override fun onFailure(call: Call<List<List<String>>>, t: Throwable) {
                     Log.e("amdrius", t.message.toString())
+                    // show a toast
+                    runOnUiThread {
+                        Toast.makeText(applicationContext, "No se hallaron rutas", Toast.LENGTH_SHORT).show()
+                    }
+
                 }
             })
 
