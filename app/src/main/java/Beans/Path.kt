@@ -7,3 +7,8 @@ class Path {
         this.paths = paths
     }
 }
+
+data class Prim(
+    val path: List<String>,
+    val cost: Double
+)

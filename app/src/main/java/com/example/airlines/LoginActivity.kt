@@ -1,5 +1,6 @@
 package com.example.airlines
 
+import Beans.GlobalVariables
 import android.content.Intent
 import android.os.Bundle
 import android.text.InputType
@@ -44,6 +45,7 @@ class LoginActivity : AppCompatActivity() {
             // Navegar a otra Activity pasando argumentos
             val intent = Intent(this, HomeActivity::class.java)
             intent.putExtra("userName", userName.text.toString())
+            GlobalVariables.username = userName.text.toString()
             startActivity(intent)
         }
 

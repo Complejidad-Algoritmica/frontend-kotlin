@@ -7,118 +7,481 @@
     android:layout_height="match_parent"
     android:background="@drawable/prueba"
     tools:context=".HomeActivity">
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
+    <ScrollView
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/v_top"
-        android:background="#FEFFFF">
-        <LinearLayout
-            android:id="@+id/ll_plan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="40dp"
-            android:layout_marginStart="25dp"
-            >
-            <TextView
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        android:layout_height="0dp">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+
+            android:background="#FEFFFF">
+            <LinearLayout
+                android:id="@+id/ll_plan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Planea tu próximo "
-                android:fontFamily="@font/poppins_mediumitalic"
-                android:textFontWeight="800"
-                android:textSize="25sp"/>
+                android:orientation="horizontal"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="40dp"
+                android:layout_marginStart="25dp"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Planea tu próximo "
+                    android:fontFamily="@font/poppins_mediumitalic"
+                    android:textFontWeight="800"
+                    android:textSize="25sp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="viaje"
+                    app:layout_constraintTop_toBottomOf="@id/v_top"
+                    app:layout_constraintStart_toEndOf="@id/tv_user"
+                    android:textSize="25sp"
+                    android:textColor="#CD324E"
+                    android:textFontWeight="800"
+                    android:fontFamily="@font/poppins_mediumitalic"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_enter_origin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/ll_plan"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="40dp"
+                android:gravity="center"
+                >
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="30dp"
+                    android:layout_marginEnd="16dp"
+                    android:src="@drawable/ic_plane"
+                    app:tint="#1D2971" />
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/auth_input"
+                    android:id="@+id/ll_origin"
+                    android:clickable="true"
+                    >
+
+                    <TextView
+                        android:layout_weight="10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Aeropuerto de origen"
+                        android:textSize="13sp"
+                        android:id="@+id/txtAirportOrigin"
+                        android:textColor="#A9A9A9"
+                        />
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/baseline_arrow_outward_24"
+                        android:layout_marginStart="10dp"
+                        />
+
+                </LinearLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ll_enter_destination"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/ll_enter_origin"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="40dp"
+                android:gravity="center"
+                >
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="30dp"
+                    android:layout_marginEnd="16dp"
+                    android:src="@drawable/ic_landing_plane"
+                    app:tint="#CC324E" />
+                <LinearLayout
+                    android:clickable="true"
+                    android:id="@+id/ll_destination"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/auth_input"
+                    >
+
+                    <TextView
+                        android:layout_weight="10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Aeropuerto de destino"
+                        android:textSize="13sp"
+                        android:id="@+id/txtAirportDestination"
+                        android:textColor="#A9A9A9"
+                        />
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/baseline_arrow_outward_24"
+                        android:layout_marginStart="10dp"
+                        />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/ll_enter_destination"
+                app:layout_constraintStart_toStartOf="parent"
+                android:id="@+id/ll_filters"
+                android:paddingHorizontal="25dp"
+                android:paddingVertical="20dp"
+                >
+
+
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_marginBottom="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Fecha de salida"
+                                android:textSize="13sp"
+                                android:textColor="#A9A9A9"
+                                android:layout_marginEnd="10dp"
+                                />
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@drawable/baseline_calendar_today_24"
+                                />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/dates_input"
+                            >
+
+                            <TextView
+                                android:layout_weight="10"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="dd-mm-yyyy"
+                                android:textSize="13sp"
+                                android:id="@+id/txtExitDate"
+                                android:textColor="#A9A9A9"
+                                android:gravity="center"
+                                android:clickable="true"
+                                />
+
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_marginBottom="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Fecha de llegada"
+                                android:textSize="13sp"
+                                android:textColor="#A9A9A9"
+                                android:layout_marginEnd="10dp"
+                                />
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@drawable/baseline_calendar_today_24"
+                                />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/dates_input"
+                            >
+
+                            <TextView
+                                android:layout_weight="10"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="dd-mm-yyyy"
+                                android:textSize="13sp"
+                                android:id="@+id/txtArriveDate"
+                                android:textColor="#A9A9A9"
+                                android:gravity="center"
+                                android:clickable="true"
+                                />
+
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:gravity="bottom"
+                android:paddingHorizontal="25dp"
+                app:layout_constraintTop_toBottomOf="@+id/ll_filters"
+                app:layout_constraintStart_toStartOf="parent"
+                android:id="@+id/ll_other_filters"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="País"
+                        android:textSize="11sp"
+                        android:textColor="#A9A9A9"
+                        />
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:background="@drawable/dates_input"
+                        android:hint="Ingresa un país"
+                        android:textSize="11sp"
+                        android:padding="5dp"/>
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Cantidad de rutas"
+                        android:textSize="11sp"
+                        android:textColor="#A9A9A9"
+                        />
+                    <EditText
+                        android:inputType="number"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:background="@drawable/dates_input"
+                        android:hint="Ingresa un límite"
+                        android:textSize="11sp"
+                        android:padding="5dp"/>
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_marginStart="5dp"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Cantidad de escalas"
+                        android:textSize="10sp"
+                        android:textColor="#A9A9A9"
+                        />
+                    <EditText
+                        android:inputType="number"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:background="@drawable/dates_input"
+                        android:hint="Ingresa un límite"
+                        android:textSize="11sp"
+                        android:padding="5dp"/>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/ll_other_filters"
+                app:layout_constraintStart_toStartOf="parent"
+                android:id="@+id/ll_lowest_cost"
+                android:paddingHorizontal="25dp"
+                android:paddingVertical="20dp"
+                android:gravity="center"
+
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="¿Deseas ahorrar dinero?"
+                    android:textSize="13sp"
+                    android:textColor="#A9A9A9"
+                    />
+
+                <Switch
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_gravity="center"
+                    android:id="@+id/sw_lowest_cost"
+                    />
+            </LinearLayout>
+
+            <Button
+                android:layout_width="170dp"
+                android:layout_height="wrap_content"
+                android:text="BUSCAR"
+                android:id="@+id/btn_search"
+                android:layout_marginTop="20dp"
+                app:layout_constraintTop_toBottomOf="@+id/ll_lowest_cost"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+
             <TextView
+                android:layout_marginTop="10dp"
+                app:layout_constraintTop_toBottomOf="@+id/btn_search"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:visibility="gone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="viaje"
-                app:layout_constraintTop_toBottomOf="@id/v_top"
-                app:layout_constraintStart_toEndOf="@id/tv_user"
-                android:textSize="25sp"
-                android:textColor="#CD324E"
-                android:textFontWeight="800"
-                android:fontFamily="@font/poppins_mediumitalic"/>
-        </LinearLayout>
+                android:text=""
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:id="@+id/tv_results"
+                android:fontFamily="@font/poppins_medium"/>
 
-        <LinearLayout
-            android:id="@+id/ll_enter_origin"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintTop_toBottomOf="@id/ll_plan"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="25dp"
-            android:layout_marginEnd="40dp"
-            android:gravity="center"
-            >
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="30dp"
-                android:layout_marginEnd="16dp"
-                android:src="@drawable/ic_plane"
-                app:tint="#1D2971" />
-            <EditText
-                android:id="@+id/et_origin"
-                android:layout_width="fill_parent"
-                android:textSize="13sp"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_routes"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/auth_input"
-                android:hint="Areopuerto de origen"/>
+                app:layout_constraintTop_toBottomOf="@+id/tv_results"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="30dp"
+                android:visibility="invisible"
+                />
 
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/ll_enter_destination"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintTop_toBottomOf="@id/ll_enter_origin"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="25dp"
-            android:layout_marginEnd="40dp"
-            android:gravity="center"
-            >
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="30dp"
-                android:layout_marginEnd="16dp"
-                android:src="@drawable/ic_landing_plane"
-                app:tint="#CC324E" />
-            <EditText
-                android:id="@+id/et_destino"
-                android:layout_width="fill_parent"
-                android:textSize="13sp"
+            <androidx.cardview.widget.CardView
+                app:layout_constraintTop_toBottomOf="@+id/tv_results"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:id="@+id/one_result"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/auth_input"
-                android:hint="Aeropuerto de llegada"/>
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="19dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="20dp"
+                app:cardElevation="6dp"
+                app:cardCornerRadius="15dp"
+                android:visibility="invisible"
+                android:background="#DBDCE6">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20sp"
+                    >
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        >
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Ruta N° "
+                            android:fontFamily="@font/poppins_mediumitalic"
+                            android:textSize="20sp"
+                            android:textColor="#CD324E"
+                            android:textStyle="bold"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="----"
+                            android:textStyle="bold"
+                            android:textSize="20sp"
+                            android:textColor="#CD324E"
+                            android:fontFamily="@font/poppins_mediumitalic"
+                            android:id="@+id/txtCardId2"/>
 
-        </LinearLayout>
-        <Button
-            android:layout_width="170dp"
-            android:layout_height="wrap_content"
-            android:text="Mostrar rutas"
-            android:id="@+id/btn_search"
-            android:layout_marginTop="20dp"
-            app:layout_constraintTop_toBottomOf="@+id/ll_enter_destination"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            />
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_routes"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/btn_search"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="30dp"
-            android:visibility="invisible"
-            />
+                        <TextView
+                            android:textAlignment="textEnd"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="$000.00"
+                            android:textStyle="bold"
+                            android:textSize="20sp"
+                            android:textColor="#CD324E"
+                            android:fontFamily="@font/poppins_mediumitalic"
+                            android:id="@+id/txtCost2"/>
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/txtCard2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="texto"/>
+
+                </LinearLayout>
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
     <View
         android:id="@+id/v_top"
         android:layout_width="match_parent"
@@ -148,6 +511,7 @@
             android:id="@+id/tv_user"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textAllCaps="true"
             android:text="Usuario"
             android:textColor="@color/white"
             android:textSize="30sp"
