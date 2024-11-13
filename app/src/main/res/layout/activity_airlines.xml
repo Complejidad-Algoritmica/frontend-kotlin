@@ -8,11 +8,159 @@
     android:background="@drawable/prueba"
     tools:context=".HomeActivity">
 
+
+    <LinearLayout
+        android:paddingVertical="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:id="@+id/ll_search"
+        app:layout_constraintTop_toBottomOf="@id/v_top"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/sv_items"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:background="@drawable/card_searching_map"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="20dp"
+            >
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/search_icon"
+                android:translationY="15dp"
+                android:layout_marginLeft="20dp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Ingresa una aerolinea"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="20dp"
+                android:background="@null"
+                android:padding="5dp"
+                android:id="@+id/search_airline"
+                android:layout_gravity="center"
+                android:textColorHint="@color/black"
+                android:textColor="@color/black"
+                android:fontFamily="@font/poppins_medium"
+                android:elegantTextHeight="true"
+                />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:gravity="bottom"
+            android:paddingHorizontal="25dp"
+            app:layout_constraintTop_toBottomOf="@+id/ll_filters_airlines"
+            app:layout_constraintStart_toStartOf="parent"
+            android:id="@+id/ll_other_filters"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_marginEnd="5dp"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="País"
+                    android:textSize="11sp"
+                    android:textColor="#A9A9A9"
+                    />
+                <EditText
+                    android:id="@+id/query_country"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:background="@drawable/dates_input"
+                    android:hint="Ingresa un país"
+                    android:textSize="11sp"
+                    android:padding="5dp"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Cantidad de rutas"
+                    android:textSize="11sp"
+                    android:textColor="#A9A9A9"
+                    />
+                <EditText
+                    android:id="@+id/query_limit_routes"
+                    android:inputType="number"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:background="@drawable/dates_input"
+                    android:hint="Ingresa un límite"
+                    android:textSize="11sp"
+                    android:padding="5dp"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_marginStart="5dp"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Cantidad de escalas"
+                    android:textSize="10sp"
+                    android:textColor="#A9A9A9"
+                    />
+                <EditText
+                    android:id="@+id/query_limit_destinations"
+                    android:inputType="number"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:background="@drawable/dates_input"
+                    android:hint="Ingresa un límite"
+                    android:textSize="11sp"
+                    android:padding="5dp"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <Button
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:text="BUSCAR"
+            android:id="@+id/btn_search_airline"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            />
+    </LinearLayout>
+
+
     <ScrollView
+        android:id="@+id/sv_items"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/v_top"
+        app:layout_constraintTop_toBottomOf="@id/ll_search"
         android:layout_width="match_parent"
         android:background="@color/white"
         android:layout_height="0dp">
